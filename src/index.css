@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* The "Ethereal Aurora" Palette */
+  --nebula-deep: #020617;
+  --aurora-cyan: #06B6D4;
+  --aurora-violet: #7C3AED;
+  --starlight-silver: #E2E8F0;
+  --diamond-white: #FFFFFF;
+
+  --text-primary: var(--diamond-white);
+  --text-secondary: rgba(226, 232, 240, 0.6);
+  --glass-nebula: rgba(255, 255, 255, 0.03);
+
+  --font-display: 'Playfair Display', serif;
+  --font-modern: 'Space Grotesk', sans-serif;
+
+  --transition-stellar: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-modern);
+  background-color: var(--nebula-deep);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  cursor: none !important;
+  min-height: 100vh;
+}
+
+/* Global Celestial Container */
+.celestial-container-global {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--nebula-deep);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Star Visual Effects */
+.star-vFX {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.shooting-star-vFX {
+  position: absolute;
+  height: 1px;
+  width: 150px;
+  rotate: 45deg;
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+/* Dynamic Aurora Atmosphere */
+.aurora-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(2, 6, 23, 1) 0%, #000 100%);
+}
+
+.aurora-blur {
+  position: absolute;
+  inset: -100px;
+  filter: blur(100px);
+  opacity: 0.4;
+  background:
+    radial-gradient(circle at 0% 0%, var(--aurora-cyan) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, var(--aurora-violet) 0%, transparent 50%);
+  animation: aurora-drift 20s infinite alternate;
+}
+
+@keyframes aurora-drift {
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+
+  to {
+    transform: scale(1.1) rotate(3deg);
+  }
+}
+
+/* Comet Cursor System */
+.comet-head {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  box-shadow: 0 0 20px 2px var(--aurora-cyan);
+}
+
+.comet-aura {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease-out;
+}
+
+/* Typographic Shimmer */
+.shimmer-text {
+  background: linear-gradient(90deg, #fff, var(--aurora-cyan), var(--aurora-violet), #fff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    cursor: auto !important;
+  }
+
+  .comet-head,
+  .comet-aura {
+    display: none;
+  }
+}
