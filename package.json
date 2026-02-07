@@ -1,8 +1,8 @@
 {
-  "name": "valentine-for-ishu",
+  "name": "ishu-valentine-masterpiece",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://kavyasharma200-tech.github.io/valentine-for-ishu/",
+  "homepage": "https://kavyasharma200-tech.github.io/ishu-valentine-masterpiece/",
   "type": "module",
   "scripts": {
     "dev": "vite",
